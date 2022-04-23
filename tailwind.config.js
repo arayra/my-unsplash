@@ -4,5 +4,10 @@ module.exports = {
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
     },
+    extends: {
+      transitionProperty: {
+        width: "width", // https://stackoverflow.com/a/66031916
+      },
+    },
   },
 };
