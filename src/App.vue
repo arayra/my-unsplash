@@ -21,12 +21,13 @@ const images = [
     link: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
 ];
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
   <div class="max-w-screen-xl mx-auto">
     <nav
-      class="fixed top-0 w-full max-w-screen-xl bg-white grid grid-cols-12 font-poppins py-6 px-6 md:text-sm z-50"
+      class="fixed top-0 w-full max-w-screen-xl bg-white grid grid-cols-12 font-poppins py-6 px-6 md:text-sm border-b-2 z-50"
       id="images"
     >
       <div
@@ -55,7 +56,7 @@ const images = [
         </button>
         <Teleport to="body">
           <button
-            class="fixed right-8 bottom-8 rounded-full py-4 px-4 bg-green-600 md:hidden"
+            class="fixed right-8 bottom-8 rounded-full py-4 px-4 bg-green-600 md:hidden z-50"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +78,7 @@ const images = [
       </div>
     </nav>
     <section
-      class="flex flex-wrap mt-20 font-poppins text-sm leading-6"
+      class="flex flex-wrap mt-28 font-poppins text-sm leading-6"
       id="images"
     >
       <div
@@ -101,6 +102,16 @@ const images = [
       </div>
     </section>
     <div id="pop-up-box"></div>
+    <section class="text-center font-poppins my-12" id="footer">
+      <span class="text-gray-700"
+        >{{ currentYear }}
+        <a
+          href="https://github.com/irlanvila"
+          class="text-green-700 hover:bg-green-200 underline px-1"
+          >Irlan Arvila</a
+        ></span
+      >
+    </section>
   </div>
 </template>
 
