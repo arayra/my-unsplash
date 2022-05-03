@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const images = [
   {
-    name: "Svelte code example",
+    name: "Svelte code example 4613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90b y1wYWdlfHx8fGVufDB",
     link: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
   {
@@ -26,7 +26,7 @@ const images = [
 <template>
   <div class="max-w-screen-xl mx-auto">
     <nav
-      class="fixed top-0 w-full max-w-screen-xl bg-white grid grid-cols-12 font-poppins py-6 px-6 md:text-sm"
+      class="fixed top-0 w-full max-w-screen-xl bg-white grid grid-cols-12 font-poppins py-6 px-6 md:text-sm z-50"
       id="images"
     >
       <div
@@ -76,17 +76,28 @@ const images = [
         </Teleport>
       </div>
     </nav>
-    <section class="flex flex-wrap mt-20" id="images">
+    <section
+      class="flex flex-wrap mt-20 font-poppins text-sm leading-6"
+      id="images"
+    >
       <div
-        class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 h-full p-5"
+        class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 h-full p-2"
         v-for="image in images"
         :key="image.link"
       >
-        <img
-          class="rounded-lg object-cover h-80 w-full mx-auto"
-          :src="image.link"
-          :alt="image.name"
-        />
+        <div class="relative overflow-hidden">
+          <img
+            class="rounded-lg object-cover h-80 w-full mx-auto hover:cursor-zoom-in hover:brightness-75 peer"
+            :src="image.link"
+            :alt="image.name"
+          />
+          <div
+            class="absolute left-0 -bottom-96 hover:bottom-0 peer-hover:bottom-0 transition-all z-10 w-full h-fit max-h-full p-2 overflow-hidden text-black bg-gray-100/90"
+            id="image-hover"
+          >
+            <span class="break-words">{{ image.name }}</span>
+          </div>
+        </div>
       </div>
     </section>
     <div id="pop-up-box"></div>
