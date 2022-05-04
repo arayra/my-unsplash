@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import ModalAddPhoto from "./components/ModalAddPhoto.vue";
+import ButtonComponent from "./components/Button.vue";
+
+let showModalAddphoto = ref(false);
 const images = [
   {
     name: "Svelte code example 4613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90b y1wYWdlfHx8fGVufDB",
@@ -49,11 +54,7 @@ const currentYear = new Date().getFullYear();
         class="hidden md:flex justify-center items-center col-span-3 lg:col-span-2 w-full"
         id="add-photo"
       >
-        <button
-          class="text-white bg-green-600 hover:bg-green-700 transition rounded py-2 px-8"
-        >
-          Add a photo
-        </button>
+        <ButtonComponent text="Add a photo" @click="showModalAddphoto = true" />
         <Teleport to="body">
           <button
             class="fixed right-8 bottom-8 rounded-full py-4 px-4 bg-green-600 md:hidden z-50"
@@ -74,6 +75,12 @@ const currentYear = new Date().getFullYear();
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
           </button>
+        </Teleport>
+        <Teleport to="body">
+          <ModalAddPhoto
+            :show="showModalAddphoto"
+            @close="showModalAddphoto = false"
+          />
         </Teleport>
       </div>
     </nav>
